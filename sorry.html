@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maff Kar Do Na? 🥺</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffeef8;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+        #container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            position: relative;
+            width: 350px;
+        }
+        h1 { color: #d63384; }
+        .buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        button {
+            padding: 10px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #yesBtn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #noBtn {
+            background-color: #f44336;
+            color: white;
+            position: absolute;
+        }
+        .hidden { display: none; }
+        #successMsg {
+            font-size: 24px;
+            color: #d63384;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <div id="askSection">
+            <h1 id="question">Kya tumne mujhe maaf kiya? 🥺</h1>
+            <div class="buttons">
+                <button id="yesBtn" onclick="accepted()">Yes</button>
+                <button id="noBtn" onmouseover="moveButton()" onclick="moveButton()">No</button>
+            </div>
+        </div>
+
+        <div id="successSection" class="hidden">
+            <h1 id="successMsg">I LOVE YOU IMLI! ❤️✨</h1>
+            <p>Shukriya maaf karne ke liye! 😊</p>
+        </div>
+    </div>
+
+    <script>
+        function moveButton() {
+            const noBtn = document.getElementById('noBtn');
+            
+            // Screen ki width aur height nikalna
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            
+            // Button ko nayi jagah bhej dena
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+        }
+
+        function accepted() {
+            document.getElementById('askSection').classList.add('hidden');
+            document.getElementById('successSection').classList.remove('hidden');
+            // 'No' button ko gayab kar dena
+            document.getElementById('noBtn').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
